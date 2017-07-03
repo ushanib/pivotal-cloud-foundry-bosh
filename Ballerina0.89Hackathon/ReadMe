@@ -1,0 +1,38 @@
+README 
+======
+
+For more information please read, https://medium.com/ballerinalang/salesforce-integration-with-ballerina-8234ccab0e8b
+
+Above sample was done for Ballerina 0.86 and this sample was updated to support Ballerina 0.89 after the changes done in Ballerina.
+
+To Run this sample,
+
+query <userName> <password+securityToken> <queryString> <loginUrl> <soapVersion>
+
+./ballerina run main ../../../../0.89/nightlybuild/sfnew.bal query ushanib@gmail.com password+Token "Select u.Username, u.ProfileId, u.Name, u.LastName, u.Email From User u where Username ='ushani1@wso2.com'" https://login.salesforce.com/services/Soap/u/40.0 1.1
+
+
+
+Sample Output:
+
+
+<queryResponse xmlns="urn:partner.soap.sforce.com" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sf="urn:sobject.partner.soap.sforce.com">
+   <result xsi:type="QueryResult">
+      <done>true</done>
+      <queryLocator xsi:nil="true"/>
+      <records xsi:type="sf:sObject">
+         <sf:type>User</sf:type>
+         <sf:Id xsi:nil="true"/>
+         <sf:Username>ushani1@wso2.com</sf:Username>
+         <sf:ProfileId>00e90000001aVwiAAE</sf:ProfileId>
+         <sf:Name>Balasooriya</sf:Name>
+         <sf:LastName>Balasooriya</sf:LastName>
+         <sf:Email>ushani@wso2.com</sf:Email>
+      </records>
+      <size>1</size>
+   </result>
+</queryResponse>
+{"SFUser":{"Sfusername":"ushani1@wso2.com","SfProfileId":"00e90000001aVwiAAE","SfName":"Balasooriya","SfEmail":"ushani@wso2.com"}}
+
+
+
