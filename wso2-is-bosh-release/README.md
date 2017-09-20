@@ -105,155 +105,22 @@ A BOSH release for deploying WSO2 Identity Server 5.3.0 on BOSH Director:
 
 Basically Structure of the files will be as below :
 
-
-├── blobs
-│   ├── oraclejdk
-│   │   └── jdk-8u144-linux-x64.tar.gz
-│   └── wso2is
-│       └── wso2is-5.3.0.zip
 ├── bosh-deployment
-│   ├── aws
-│   │   ├── cloud-config.yml
-│   │   ├── cpi.yml
-│   │   └── iam-instance-profile.yml
-│   ├── azure
-│   │   ├── cloud-config.yml
-│   │   ├── cpi.yml
-│   │   ├── custom-environment.yml
-│   │   └── use-managed-disks.yml
-│   ├── bosh-lite-docker.yml
-│   ├── bosh-lite-grootfs.yml
-│   ├── bosh-lite-runc.yml
-│   ├── bosh-lite.yml
-│   ├── bosh.yml
-│   ├── ci
-│   │   └── compiled-releases
-│   │       ├── configure.sh
-│   │       ├── pipeline.yml
-│   │       └── tasks
-│   │           ├── export-release.sh
-│   │           └── export-release.yml
-│   ├── config-server.yml
-│   ├── credhub.yml
-│   ├── docker
-│   │   ├── cloud-config.yml
-│   │   ├── cpi.yml
-│   │   └── unix-sock.yml
-│   ├── docs
-│   │   ├── bosh-lite-on-vbox.md
-│   │   └── jumpbox-user.md
-│   ├── experimental
-│   │   ├── local-bosh-release-tarball.yml
-│   │   └── nats-tls.yml
-│   ├── external-ip-not-recommended-uaa.yml
-│   ├── external-ip-not-recommended.yml
-│   ├── external-ip-with-registry-not-recommended.yml
-│   ├── gcp
-│   │   ├── bosh-lite-vm-type.yml
-│   │   ├── cloud-config.yml
-│   │   ├── cpi.yml
-│   │   ├── gcs-blobstore.yml
-│   │   └── service-account.yml
-│   ├── hm
-│   │   └── datadog.yml
-│   ├── jumpbox-user.yml
-│   ├── LICENSE
-│   ├── local-bosh-release-tarball.yml
-│   ├── local-bosh-release.yml
-│   ├── local-dns.yml
-│   ├── misc
-│   │   ├── bosh-dev.yml
-│   │   ├── dns.yml
-│   │   ├── external-db.yml
-│   │   ├── ipv6
-│   │   │   ├── bosh.yml
-│   │   │   ├── credhub.yml
-│   │   │   └── uaa.yml
-│   │   ├── powerdns.yml
-│   │   └── proxy.yml
-│   ├── NOTICE
-│   ├── openstack
-│   │   ├── cloud-config.yml
-│   │   ├── cpi.yml
-│   │   ├── custom-ca.yml
-│   │   ├── keystone-v2.yml
-│   │   └── trusted-certs.yml
-│   ├── README.md
-│   ├── runtime-configs
-│   │   ├── dns.yml
-│   │   └── syslog.yml
-│   ├── softlayer
-│   │   ├── cloud-config.yml
-│   │   ├── cpi-dynamic.yml
-│   │   └── cpi.yml
-│   ├── syslog.yml
-│   ├── test.sh
-│   ├── turbulence.yml
-│   ├── uaa.yml
-│   ├── vcloud
-│   │   └── cpi.yml
-│   ├── virtualbox
-│   │   ├── cloud-config.yml
-│   │   ├── cpi.yml
-│   │   ├── internal-network.yml
-│   │   ├── ipv6
-│   │   │   ├── cpi.yml
-│   │   │   └── remote.yml
-│   │   ├── outbound-network.yml
-│   │   ├── remote.yml
-│   │   └── remove-ntp.yml
-│   ├── vsphere
-│   │   ├── cloud-config.yml
-│   │   ├── cpi.yml
-│   │   └── resource-pool.yml
-│   └── warden
-│       ├── cloud-config.yml
-│       ├── cpi-grootfs.yml
-│       ├── cpi.yml
-│       └── ignore-gateway.yml
-├── bosh-stemcell-3445.7-warden-boshlite-ubuntu-trusty-go_agent.tgz
 ├── config
-│   ├── blobs.yml
-│   └── final.yml
 ├── create.sh
 ├── deploy.sh
-├── dev_releases
-│   └── wso2is-release
-│       ├── index.yml
-│       ├── wso2is-release-0+dev.1.yml
-│       ├── wso2is-release-0+dev.2.yml
-│       ├── wso2is-release-0+dev.3.yml
-│       ├── wso2is-release-0+dev.4.yml
-│       ├── wso2is-release-0+dev.5.yml
-│       └── wso2is-release-0+dev.6.yml
 ├── export.sh
 ├── jobs
-│   └── wso2is
-│       ├── monit
-│       ├── spec
-│       └── templates
-│           └── ctl.erb
 ├── packages
-│   ├── common
-│   │   ├── packaging
-│   │   └── spec
-│   ├── oraclejdk
-│   │   ├── packaging
-│   │   └── spec
-│   └── wso2is
-│       ├── packaging
-│       └── spec
 ├── README.md
 ├── src
-│   └── common
-│       └── utils.sh
 ├── vbox
-│   ├── creds.yml
-│   └── state.json
 └── wso2is-manifest.yml
 
+** Please note this is done refering WSO2 API Manager BOSH Release as mentioned done by Imesh for WSO2 IS
 
 ## References
 
 * [A Guide to Using BOSH](http://mariash.github.io/learn-bosh/)
 * [BOSH Lite](https://bosh.io/docs/bosh-lite.html)
+* WSO2 API Manager BOSH Release by Imesh
