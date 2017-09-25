@@ -100,7 +100,7 @@ A BOSH release for deploying WSO2 Identity Server 5.3.0 on BOSH Director:
     wso2is/08b2075d-c7e6-49f8-b223-12d989b734c2  running        -   10.244.15.21  84cac420-fd02-4884-5821-0fad60e3ce29  wso2is-resource-pool
     ...
 
-    # WSO2 Identity Server Store URL: http://10.244.15.21:9763/carbon/
+    # WSO2 Identity Server URL: http://10.244.15.21:9763/carbon/
     ```
 
 Basically Structure of the files will be as below :
