@@ -37,13 +37,12 @@ A BOSH release for deploying WSO2 Identity Server 5.3.0 on BOSH Director:
         <SvnPassword>password</SvnPassword>
         <SvnUrlAppendTenantId>true</SvnUrlAppendTenantId>
     </DeploymentSynchronizer>
-
    ```
    
 
 3. Then get configuration files that specify BOSH environment in VirtualBox and run bosh create-env as following:
 
-    ```bash
+    ```
     $ git clone https://github.com/cloudfoundry/bosh-deployment bosh-deployment
     $ mkdir vbox
     $ bosh create-env bosh-deployment/bosh.yml \
@@ -63,19 +62,19 @@ A BOSH release for deploying WSO2 Identity Server 5.3.0 on BOSH Director:
 
 4. Once VM with BOSH Director is running, point your CLI to it, saving the environment with the alias vbox:
 
-    ```bash
+    ```
     bosh -e 192.168.50.6 alias-env vbox --ca-cert <(bosh int vbox/creds.yml --path /director_ssl/ca)
     ```
 
 5. Obtain generated password to BOSH Director:
 
-    ```bash
+    ```
     bosh int vbox/creds.yml --path /admin_password
     ```
 
 6. Log in using admin username and generated password:
 
-    ```bash
+    ```
     bosh -e vbox login
     ```
 
@@ -83,7 +82,7 @@ A BOSH release for deploying WSO2 Identity Server 5.3.0 on BOSH Director:
 
 8. Add above distributions as blobs:
 
-    ```bash
+    ```
     bosh -e vbox add-blob jdk-8u144-linux-x64.tar.gz oraclejdk/jdk-8u144-linux-x64.tar.gz
     bosh -e vbox add-blob wso2is-5.3.0.zip wso2is/wso2is-5.3.0.zip
     bosh -e vbox -n upload-blobs
@@ -91,26 +90,26 @@ A BOSH release for deploying WSO2 Identity Server 5.3.0 on BOSH Director:
 
 9. Create the WSO2 Identity Server bosh release:
 
-    ```bash
+    ```
     bosh -e vbox create-release --force
     ```
 
 10. Upload the WSO2 Identity Server bosh release to BOSH Director:
 
-    ```bash
+    ```
     bosh -e vbox upload-release
     ```
 
 11. Download latest bosh-lite warden stemcell from bosh.io and upload it to BOSH Director:
     
-    ```bash
+    ```
     wget https://s3.amazonaws.com/bosh-core-stemcells/warden/bosh-stemcell-3445.7-warden-boshlite-ubuntu-trusty-go_agent.tgz
     bosh -e vbox upload-stemcell bosh-stemcell-3445.7-warden-boshlite-ubuntu-trusty-go_agent.tgz
     ```
 
 12. Deploy the WSO2 Identity Server bosh release manifest in BOSH Director:
 
-    ```bash
+    ```
     bosh -e vbox -d wso2is deploy wso2is-manifest.yml
     ```
 
@@ -124,7 +123,7 @@ A BOSH release for deploying WSO2 Identity Server 5.3.0 on BOSH Director:
 
 14. Find the VM IP address via the bosh CLI and access the WSO2 Identity Server Store via a web browser:
 
-    ```bash
+    ```
     bosh -e vbox vms
     ...
 
