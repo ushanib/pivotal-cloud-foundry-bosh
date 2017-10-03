@@ -10,21 +10,21 @@ A BOSH release for deploying WSO2 Identity Server 5.3.0 on BOSH Director:
    
    i.  In this example I have used mysql 5.7 as the registry  and user store database and h2 as the local carbon database.
      
- reate the below 3 databases in your mysql environment and run the mysql5.7 script against these database which can be found in extracted wso2is pack wso2is-5.3.0/dbscripts and wso2is-5.3.0/dbscripts/identity  downloaded from wum.
+ Create the below 3 databases in your mysql environment and run the mysql5.7 script against these database which can be found in extracted wso2is pack wso2is-5.3.0/dbscripts and wso2is-5.3.0/dbscripts/identity  downloaded from wum.
   * registry
   * userstore
    
-   ii.  Change the configuration according to the database configurations in wso2-is-bosh-release/src/config/repository/conf/datasources/master-datasources.xml providing your database configuration details.
+    ii.  Change the configuration according to the database configurations in wso2-is-bosh-release/src/config/repository/conf/datasources/master-datasources.xml providing your database configuration details.
 
-   iii.  Add the database driver in to wso2-is-bosh-release/src/config/repository/components/lib/ . In here I have already added the mysql driver.
+    iii.  Add the database driver in to wso2-is-bosh-release/src/config/repository/components/lib/ . In here I have already added the mysql driver.
 
-   iv.  Include the driver name as a file name in wso2-is-bosh-release/packages/config/spec under files section as below. The below is added already for the above mysql driver.
+    iv.  Include the driver name as a file name in wso2-is-bosh-release/packages/config/spec under files section as below. The below is added already for the above mysql driver.
 
       ```
       -  config/repository/components/lib/mysql-connector-java-5.1.36.jar
       ```
 
-   v.  Provide your svn configuration credentials in wso2-is-bosh-release/src/config/repository/conf/carbon.xml for deployment synchronization
+    v.  Provide your svn configuration credentials in wso2-is-bosh-release/src/config/repository/conf/carbon.xml for deployment synchronization
 
     ```
     <DeploymentSynchronizer>
@@ -36,8 +36,8 @@ A BOSH release for deploying WSO2 Identity Server 5.3.0 on BOSH Director:
         <SvnUser>username</SvnUser>
         <SvnPassword>password</SvnPassword>
         <SvnUrlAppendTenantId>true</SvnUrlAppendTenantId>
-    </DeploymentSynchronizer>
-   ```   
+    </DeploymentSynchronizer>```
+  
 
 3. Then get configuration files that specify BOSH environment in VirtualBox and run bosh create-env as following:
 
