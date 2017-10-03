@@ -36,6 +36,7 @@ export WSO2_IS_DATA_DIR=/var/vcap/store/wso2is/data/wso2is
 export JDK_HOME=/var/vcap/packages/oraclejdk/
 export WSO2_IS_PKG_HOME=/var/vcap/packages/wso2is/
 export WSO2_IS_SERVER_PACKAGE=/var/vcap/packages/wso2is/
+export WSO2_IS_CONFIG=/var/vcap/packages/config/
 
 # Not relying on network name to arrive at hostip
 # Set the ip to HOSTNAME to avoid listener getting bound to some internal only hostname
@@ -83,9 +84,9 @@ case $1 in
     cd wso2is*
     WSO2_IS_HOME=`pwd`
 
-    # Here any config files your application needs for ex:
-    # conf_file=`ls $JOB_DIR/config/*.xml`
-    # cp ${conf_file} ${WSO2_IS_HOME}/conf
+    # Here copy all the configurations needs to be replaces the application for ex:lib, conf files
+#conf_file=`ls $JOB_DIR/config/*`
+cp -r ${WSO2_IS_CONFIG}/* ${WSO2_IS_HOME}/
 
     # Here add any database driver your application needs for ex:
     # pushd ${POSTGRES_DRIVER_HOME}

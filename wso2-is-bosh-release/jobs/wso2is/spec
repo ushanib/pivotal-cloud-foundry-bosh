@@ -8,6 +8,7 @@ packages:
 - oraclejdk
 - wso2is
 - common
+- config
 properties:
   wso2is.listen_port:
     description: "Listen Port of the Tomcat instance"
